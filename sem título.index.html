@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Lanchonete Teste</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#fff3cd;
+}
+header {
+  background:#d90429;
+  color:#ffd60a;
+  padding:20px;
+  text-align:center;
+}
+section {
+  padding:20px;
+}
+h2 {
+  color:#d90429;
+}
+.cardapio {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.item {
+  background:white;
+  border-radius:8px;
+  padding:10px;
+  box-shadow:0 0 5px rgba(0,0,0,0.2);
+  text-align:center;
+}
+.item img {
+  width:100%;
+  border-radius:8px;
+}
+button {
+  background:#ffd60a;
+  border:none;
+  padding:10px;
+  border-radius:5px;
+  cursor:pointer;
+  margin-top:5px;
+}
+#carrinho {
+  background:white;
+  padding:15px;
+  border-radius:8px;
+  box-shadow:0 0 5px rgba(0,0,0,0.2);
+}
+footer {
+  background:#d90429;
+  color:#ffd60a;
+  text-align:center;
+  padding:15px;
+}
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:green;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🍔 LANCHONETE TESTE</h1>
+<p>Os melhores lanches da cidade</p>
+</header>
+
+<section>
+<h2>🍟 Cardápio</h2>
+<div class="cardapio">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<h3>X-Burger</h3>
+<p>R$ 15,00</p>
+<button onclick="addItem('X-Burger',15)">Adicionar</button>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<h3>X-Salada</h3>
+<p>R$ 18,00</p>
+<button onclick="addItem('X-Salada',18)">Adicionar</button>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1617196034796-73dfa7b6a3c4">
+<h3>Hot Dog</h3>
+<p>R$ 12,00</p>
+<button onclick="addItem('Hot Dog',12)">Adicionar</button>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add">
+<h3>Batata Frita</h3>
+<p>R$ 10,00</p>
+<button onclick="addItem('Batata Frita',10)">Adicionar</button>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90">
+<h3>Refrigerante</h3>
+<p>R$ 6,00</p>
+<button onclick="addItem('Refrigerante',6)">Adicionar</button>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1551024709-8f23befc6cf7">
+<h3>Milk Shake</h3>
+<p>R$ 14,00</p>
+<button onclick="addItem('Milk Shake',14)">Adicionar</button>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+<h3>Combo Lanche</h3>
+<p>R$ 25,00</p>
+<button onclick="addItem('Combo Lanche',25)">Adicionar</button>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>🛒 Carrinho</h2>
+<div id="carrinho">
+<ul id="lista"></ul>
+<p><strong>Total: R$ <span id="total">0</span></strong></p>
+<button onclick="finalizar()">Finalizar Pedido</button>
+</div>
+</section>
+
+<section>
+<h2>📍 Sobre</h2>
+<p>Somos uma lanchonete dedicada a oferecer lanches saborosos, rápidos e com preço justo. Atendemos toda a região com qualidade.</p>
+</section>
+
+<section>
+<h2>📞 Contato</h2>
+<p>WhatsApp: (SEU NÚMERO AQUI)</p>
+</section>
+
+<footer>
+<p>© 2026 Lanchonete Teste</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/55SEUNUMEROAQUI">💬</a>
+
+<script>
+let total = 0;
+
+function addItem(nome, preco) {
+  let lista = document.getElementById("lista");
+  let item = document.createElement("li");
+  item.textContent = nome + " - R$ " + preco;
+  lista.appendChild(item);
+  total += preco;
+  document.getElementById("total").textContent = total.toFixed(2);
+}
+
+function finalizar() {
+  alert("Pedido enviado para a lanchonete (simulação)");
+  document.getElementById("lista").innerHTML = "";
+  total = 0;
+  document.getElementById("total").textContent = "0";
+}
+</script>
+
+</body>
+</html>
